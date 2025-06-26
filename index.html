@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reproductor 4K (Pantalla Completa y Proporción Correcta)</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: #000; /* Fondo negro por si el video tarda en cargar */
+        }
+
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /*
+              LA CORRECCIÓN: Se eliminó la línea "z-index: -1;" que causaba la pantalla negra.
+              Ahora el video se mostrará correctamente.
+            */
+        }
+
+        .video-background iframe {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100vw;
+            height: 56.25vw; /* Proporción 16:9 (100 / 1.777) */
+            min-height: 100vh;
+            min-width: 177.77vh; /* Proporción 16:9 (100 * 1.777) */
+            transform: translate(-50%, -50%);
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="video-background">
+        <iframe 
+            src="https://player.vimeo.com/video/1096624284?background=1&quality=4k"
+            frameborder="0" 
+            allow="autoplay; fullscreen" 
+            allowfullscreen>
+        </iframe>
+    </div>
+
+</body>
+</html>
