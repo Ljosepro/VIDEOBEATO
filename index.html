@@ -11,7 +11,12 @@
             width: 100%;
             height: 100%;
             overflow: hidden;
-            background-color: #000; /* Fondo negro por si el video tarda en cargar */
+            /*
+              LA CORRECCIÓN: Se cambia el fondo negro por uno transparente.
+              Ahora, mientras el video carga, se verá el fondo de la página
+              donde se inserte el HTML.
+            */
+            background-color: transparent; 
         }
 
         .video-background {
@@ -20,10 +25,6 @@
             left: 0;
             width: 100%;
             height: 100%;
-            /*
-              LA CORRECCIÓN: Se eliminó la línea "z-index: -1;" que causaba la pantalla negra.
-              Ahora el video se mostrará correctamente.
-            */
         }
 
         .video-background iframe {
@@ -31,9 +32,9 @@
             top: 50%;
             left: 50%;
             width: 100vw;
-            height: 56.25vw; /* Proporción 16:9 (100 / 1.777) */
+            height: 56.25vw; /* Proporción 16:9 */
             min-height: 100vh;
-            min-width: 177.77vh; /* Proporción 16:9 (100 * 1.777) */
+            min-width: 177.77vh; /* Proporción 16:9 */
             transform: translate(-50%, -50%);
             border: none;
         }
